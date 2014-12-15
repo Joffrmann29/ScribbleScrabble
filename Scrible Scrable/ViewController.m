@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *undoBarButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *redoBarButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *clearBarButton;
+@property (nonatomic) BOOL hitToolbar;
 
 @property (nonatomic) CGFloat navBarHeight;
 
@@ -40,16 +41,15 @@
 {
     
     //CGRect imageFrame = [UIScreen mainScreen].bounds;
-    CGRect imageFrame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
 //    CGFloat navBarY =self.navigationController.navigationBar.frame.origin.y;
     _navBarHeight = self.navigationController.navigationBar.bounds.size.height;
 //    imageFrame.origin.y = _navBarHeight + navBarY;
 //    CGFloat toolBarHeight = _toolBar.frame.size.height;
     //imageFrame.size.height = imageFrame.size.height - 44;
     
-    _photoView = [[UIImageView alloc] initWithFrame:imageFrame];
-    _tempDrawImage = [[UIImageView alloc] initWithFrame:imageFrame];
-    _mainImage = [[UIImageView alloc] initWithFrame:imageFrame];
+    _photoView = [[UIImageView alloc] initWithFrame:[self imageFrame]];
+    _tempDrawImage = [[UIImageView alloc] initWithFrame:[self imageFrame]];
+    _mainImage = [[UIImageView alloc] initWithFrame:[self imageFrame]];
     
 //    [self.view addSubview:_tempDrawImage];
 //    [self.view sendSubviewToBack:_tempDrawImage];
@@ -65,6 +65,12 @@
 //    [self.photoView addSubview:_mainImage];
 //    [self.photoView addSubview:_tempDrawImage];
 
+}
+
+-(CGRect)imageFrame
+{
+    CGRect imageFrame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-44);
+    return imageFrame;
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,7 +92,7 @@
     UITouch *touch = [touches anyObject];
     CGPoint currentPoint = [touch locationInView:self.view];
     
-    UIGraphicsBeginImageContext(self.view.frame.size);
+    UIGraphicsBeginImageContext(_photoView.frame.size);
 //    [self.tempDrawImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     [self.tempDrawImage.image drawInRect:CGRectMake(0, 0, _photoView.bounds.size.width, _photoView.bounds.size.height)];
 
@@ -111,7 +117,7 @@
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     if (!mouseSwipe) {
-        UIGraphicsBeginImageContext([UIScreen mainScreen].bounds.size);
+        UIGraphicsBeginImageContext(_photoView.bounds.size);
         
         [self.tempDrawImage.image drawInRect:CGRectMake(0, 0, _photoView.bounds.size.width, _photoView.bounds.size.height)];
         CGContextSetLineWidth(UIGraphicsGetCurrentContext(), kCGLineCapRound);
@@ -125,7 +131,7 @@
         UIGraphicsEndImageContext();
     }
     
-    UIGraphicsBeginImageContext([UIScreen mainScreen].bounds.size);
+    UIGraphicsBeginImageContext(_photoView.bounds.size);
     [self.tempDrawImage.image drawInRect:CGRectMake(0, 0, _photoView.bounds.size.width, _photoView.bounds.size.height) blendMode:kCGBlendModeNormal alpha:opacity];
     [self.mainImage.image drawInRect:CGRectMake(0, 0, _photoView.bounds.size.width, _photoView.bounds.size.height) blendMode:kCGBlendModeNormal alpha:1.0];
     
