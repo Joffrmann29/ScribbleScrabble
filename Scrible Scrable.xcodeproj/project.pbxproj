@@ -14,6 +14,9 @@
 		EC9C87EA1A3A439F0057C092 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC9C87E91A3A439F0057C092 /* Images.xcassets */; };
 		EC9C87ED1A3A439F0057C092 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9C87EB1A3A439F0057C092 /* LaunchScreen.xib */; };
 		EC9C87F91A3A439F0057C092 /* Scrible_ScrableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9C87F81A3A439F0057C092 /* Scrible_ScrableTests.m */; };
+		EC9C88051A3A4FB70057C092 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9C88041A3A4FB70057C092 /* CoreGraphics.framework */; };
+		EC9C88071A3A4FC70057C092 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9C88061A3A4FC70057C092 /* Foundation.framework */; };
+		EC9C88091A3A4FD70057C092 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9C88081A3A4FD70057C092 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,10 @@
 		EC9C87F21A3A439F0057C092 /* Scrible ScrableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Scrible ScrableTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC9C87F71A3A439F0057C092 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC9C87F81A3A439F0057C092 /* Scrible_ScrableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Scrible_ScrableTests.m; sourceTree = "<group>"; };
+		EC9C88021A3A4F890057C092 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		EC9C88041A3A4FB70057C092 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EC9C88061A3A4FC70057C092 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EC9C88081A3A4FD70057C092 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +54,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC9C88091A3A4FD70057C092 /* UIKit.framework in Frameworks */,
+				EC9C88071A3A4FC70057C092 /* Foundation.framework in Frameworks */,
+				EC9C88051A3A4FB70057C092 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +73,10 @@
 		EC9C87D01A3A439F0057C092 = {
 			isa = PBXGroup;
 			children = (
+				EC9C88081A3A4FD70057C092 /* UIKit.framework */,
+				EC9C88061A3A4FC70057C092 /* Foundation.framework */,
+				EC9C88041A3A4FB70057C092 /* CoreGraphics.framework */,
+				EC9C88021A3A4F890057C092 /* QuartzCore.framework */,
 				EC9C87DB1A3A439F0057C092 /* Scrible Scrable */,
 				EC9C87F51A3A439F0057C092 /* Scrible ScrableTests */,
 				EC9C87DA1A3A439F0057C092 /* Products */,
@@ -344,6 +358,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Scrible Scrable/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -354,6 +369,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Scrible Scrable/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -412,6 +428,7 @@
 				EC9C87FE1A3A439F0057C092 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC9C87FF1A3A439F0057C092 /* Build configuration list for PBXNativeTarget "Scrible ScrableTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +437,7 @@
 				EC9C88011A3A439F0057C092 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

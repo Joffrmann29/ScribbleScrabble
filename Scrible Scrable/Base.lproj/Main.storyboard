@@ -1,25 +1,108 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5YY-qc-lSo">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Scrible~Scrable-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sFD-ac-BxB">
+                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="e2g-Kf-5df"/>
+                                    <constraint firstAttribute="height" constant="44" id="p3R-zY-F6Y"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Tools" id="JLZ-N3-vB8">
+                                        <connections>
+                                            <action selector="toolsButton:" destination="vXZ-lx-hvc" id="2bO-0l-0jY"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Pla-d2-rDg"/>
+                                    <barButtonItem systemItem="undo" id="tZo-a9-cLM">
+                                        <connections>
+                                            <action selector="undoButton:" destination="vXZ-lx-hvc" id="Bl4-Oy-ff4"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="gTl-Hf-ViA"/>
+                                    <barButtonItem systemItem="redo" id="qae-vk-Izr">
+                                        <connections>
+                                            <action selector="redoButton:" destination="vXZ-lx-hvc" id="6YJ-Q4-buX"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="5h4-E7-XPd"/>
+                                    <barButtonItem systemItem="compose" id="7SZ-Mp-dHX"/>
+                                    <barButtonItem systemItem="trash" id="RtK-y8-jmN">
+                                        <connections>
+                                            <action selector="clearButton:" destination="vXZ-lx-hvc" id="dkb-cf-zwb"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="sFD-ac-BxB" secondAttribute="bottom" id="Dfy-1m-Zdp"/>
+                            <constraint firstItem="sFD-ac-BxB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="Xw1-9x-PyP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sFD-ac-BxB" secondAttribute="trailing" constant="-16" id="sE6-TK-sbr"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Scrible~Scrable" id="agi-rP-Dzd">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="camera" id="Zz7-W4-u9n">
+                            <connections>
+                                <action selector="photoButton:" destination="vXZ-lx-hvc" id="dje-Aa-xeF"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="KBn-ob-LV1">
+                            <connections>
+                                <action selector="saveButton:" destination="vXZ-lx-hvc" id="zvI-GY-hd3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="clearBarButton" destination="RtK-y8-jmN" id="XwU-0J-we9"/>
+                        <outlet property="photoButton" destination="Zz7-W4-u9n" id="zbF-bZ-mOC"/>
+                        <outlet property="redoBarButton" destination="qae-vk-Izr" id="RW2-60-BJZ"/>
+                        <outlet property="saveButton" destination="KBn-ob-LV1" id="Unu-Bz-4Sx"/>
+                        <outlet property="toolBar" destination="sFD-ac-BxB" id="yal-uX-3gv"/>
+                        <outlet property="toolBarButton" destination="JLZ-N3-vB8" id="26D-yw-vLe"/>
+                        <outlet property="undoBarButton" destination="tZo-a9-cLM" id="XPZ-ei-g6H"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1235" y="280"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QVo-zD-FjN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5YY-qc-lSo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KmV-qJ-4h8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="PUP-eq-swJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sIe-Lf-J6r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="424" y="280"/>
         </scene>
     </scenes>
 </document>
